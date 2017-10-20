@@ -9,9 +9,10 @@ env:
   global:
     # some dependencies might require this :(
     - PERL_USE_UNSAFE_INC=1
-script:
+install:
   # install all dependencies
-  - cpanm --installdeps --develop .
+  - cpanm --quiet --installdeps --notest --with-develop .
+script:
   # build and test this dist
   - dzil test --all
   # test installation
